@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<title>GitHub 增量观测看板 · run #18 · 2026-11-10 19:53</title>
+<style>
+:root{--bg:#f6f8fb;--panel:#ffffff;--line:#e3e8ef;--ink:#1c2536;--muted:#5d6b82;--accent:#2f5bd7;--warn:#b26a00;--ok:#137a52;--soft:#eef3ff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.65 -apple-system,"Segoe UI","Microsoft YaHei",sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 22px 60px}
+h1{font-size:23px;margin:0 0 6px}h2{font-size:17px;margin:30px 0 12px;padding-left:10px;border-left:4px solid var(--accent)}
+.sub{color:var(--muted);font-size:13px;margin-bottom:18px}
+.lead{background:var(--soft);border:1px solid #d7e2ff;border-radius:10px;padding:14px 18px;margin:16px 0 22px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.card .k{font-size:12px;color:var(--muted)}.card .v{font-size:21px;font-weight:700;margin-top:4px}
+.card.zero .v{color:var(--ok)}.card.warn .v{color:var(--warn)}.card.blue .v{color:var(--accent)}
+table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden;font-size:13px}
+th,td{padding:9px 11px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f0f4fa;color:var(--muted);font-weight:600}tr:last-child td{border-bottom:0}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+.tag{display:inline-block;background:var(--soft);color:var(--accent);border-radius:4px;padding:1px 6px;font-size:11px}
+.risk{color:#8a4b00}.note{background:#fffaf0;border:1px solid #f0dcb4;border-radius:8px;padding:12px 16px;color:#6b4b12}
+.ok{background:#eefaf4;border:1px solid #bfe6d3;border-radius:8px;padding:12px 16px;color:#0f6344}
+ul{padding-left:20px}li{margin:4px 0}
+.foot{margin-top:30px;border-top:1px solid var(--line);padding-top:14px;color:var(--muted);font-size:12px}
+</style></head><body><div class="wrap">
+<h1>GitHub 增量观测看板 · run #18</h1>
+<div class="sub">检索时点 UTC 2026-11-10 11:53:43Z → 12:06:31Z ｜ 北京 19:53:43 → 20:06:31 ｜ 窗口：近 90 天推送 / 近 30 天议题 / 近 30 天增长 ｜ 基准 baseline v1（2026-11-09，17 项）</div>
+
+<div class="lead"><b>结论先行：</b>连续第二个「零项目级变更轮」。84 项存量池的许可证、维护状态、窗口内版本、结构显著变化<b>全部为 0</b>；本轮实质产出为 4 个新增项、R54 通道归因、R55 维护模式筛除与 3 项挂起复核关闭。OSICS 维持 <b>NO_SIGNAL / DATA_INSUFFICIENT</b>。</div>
+
+<h2>1 · delta 概览</h2>
+<div class="grid">
+<div class="card n"><div class="k">存量池（前驱→本轮→含新增）</div><div class="v">84 → 84 → 88</div></div><div class="card zero"><div class="k">结构显著项</div><div class="v">0</div></div><div class="card zero"><div class="k">许可证 / 维护状态变化</div><div class="v">0 / 0</div></div><div class="card zero"><div class="k">窗口内版本变化</div><div class="v">0（core /releases/latest 4/4 复核）</div></div><div class="card blue"><div class="k">完全未变 / 星标噪声 / 同日推送</div><div class="v">31 / 24 / 29</div></div><div class="card n"><div class="k">同通道 / 跨通道</div><div class="v">33 / 51</div></div><div class="card warn"><div class="k">最大 Δstar（跨通道不具证据性）</div><div class="v">+26 colibri</div></div><div class="card n"><div class="k">同通道最大 Δstar</div><div class="v">+26 claude-mem（0.022%）</div></div>
+</div>
+<div class="sub" style="margin-top:12px">分组：与我相关 <b>52</b> 项 / 热门可用 <b>36</b> 项（去重后共 88 项唯一仓库）。未变化项目按 delta 规则只给一行状态，不重复 8 字段。</div>
+
+<h2>2 · 数据源可达性与方法学</h2>
+<table><tr><th>通道</th><th>本轮实测</th><th>处置</th></tr>
+<tr><td>core REST API</td><td>HTTP 200，全新 60/60，实耗 59，剩 1</td><td>与 run#7–17 同通道，52 次精准分配</td></tr>
+<tr><td>Search API</td><td>delta 7/7 200（84/84 全覆盖）；扩维 3 组 403</td><td>403 组列待复核，≥8s 节流</td></tr>
+<tr><td>Trending（curl）</td><td>S1+S2 6/6 HTTP 000</td><td>独立网页通道为权威，行数非零校验通过</td></tr>
+<tr><td>HN Algolia / releases / stargazers</td><td>200 / 200 / <b>401</b></td><td>逐日 star 序列不可得</td></tr>
+<tr><td>Reddit / Product Hunt / raw curl</td><td>000 / 403 / 000</td><td>README 经独立网页通道 4/4 成功</td></tr>
+</table>
+<div class="note" style="margin-top:12px"><b>R54（本轮新增）：</b>Trending 名单/顺序与 run #17 不同，但重叠仓库 period gain 逐项一致、绝对星值仅上移 1~70 → 判为<b>采集通道/出口缓存时点差异</b>，非真实榜单刷新；跨通道名单对比不得作为事件证据。<br>
+<b>R55（本轮新增）：</b><code>mapillary/OpenSfM</code> README 首行明确「no longer under active development」→ 维护模式剔除。高星 + 议题更新不能替代 README 声明。</div>
+
+<h2>3 · Trending 跨轮名单比对（R54）</h2>
+<table><tr><th>榜单</th><th>run #17 行数</th><th>run #18 行数</th><th>名单比对</th></tr><tr><td>daily</td><td>11</td><td>12</td><td>不一致（R54 通道归因）</td></tr><tr><td>weekly</td><td>14</td><td>14</td><td>不一致（R54 通道归因）</td></tr><tr><td>monthly</td><td>13</td><td>14</td><td>不一致（R54 通道归因）</td></tr></table>
+<div class="sub" style="margin-top:8px">网页通道内部跨榜绝对星值互不一致 6 项（R39 CHANNEL_ATTRIBUTION）；core API 恒为准。</div>
+
+<h2>4 · 新增项（4 项，8 字段完整见报告 §6）</h2>
+<table><tr><th>组别</th><th>项目</th><th>用途</th><th>近期热度 / 增长</th><th>维护活跃度</th><th>潜在风险（摘要）</th></tr><tr><td><span class='tag'>与我相关</span></td><td><a href='https://github.com/ricosjp/truck'>ricosjp/truck</a></td><td>Rust open-source CAD shape-processing kernel: NURBS B-rep, modular crates, boolean ops, tessellation, WebGPU r</td><td>1688 stars / 132 forks; created 2020-12-26; pushed 2026-11-02T06:26:59Z; 10 issues in 30 days; 0 HN / 0 Trending hits</td><td>ACTIVE (10 issues/30d + push within 90d); Apache-2.0; not archived/disabled</td><td class='risk'>no STEP/IGES import, no drawings/GD&amp;T; tutorials pinned to v0.6.x (version drift); needs Rust+wgpu Windows toolchain; low-frequency maintenance</td></tr><tr><td><span class='tag'>与我相关</span></td><td><a href='https://github.com/FlashML-org/FreeVideo'>FlashML-org/FreeVideo</a></td><td>Local MiniMax H3 video inference engine on consumer GPUs; VDN-H3 8-step model, weight streaming, int8/FP8 adap</td><td>2929 stars / 370 forks; created 2026-09-13; pushed 2026-11-09T13:30:04Z; 506 issues in 30 days (Search updated denominat</td><td>VERY ACTIVE (same-day issue updates + dense releases); Apache-2.0 code; not archived/disabled</td><td class='risk'>no sm_120/RTX50 naming, 8GB claim lacks independent reproduction; model-weight license needs legal review for commercial toy use; minimum ComfyUI vers</td></tr><tr><td><span class='tag'>热门可用</span></td><td><a href='https://github.com/NVIDIA/TensorRT'>NVIDIA/TensorRT</a></td><td>OSS components of NVIDIA TensorRT inference SDK: plugins, ONNX parser, samples, four import workflow paths; pi</td><td>13441 stars / 2420 forks; created 2019-05-02; pushed 2026-11-05T18:43:29Z; 32 issues in 30 days (run#17 pending #6 close</td><td>ACTIVE (32 issues/30d + 11.X migration notes + 2026Q3 roadmap); Apache-2.0; not archived/disabled</td><td class='risk'>OSS repo is a subset of GA release; sm_120/RTX50 not named; 11.X removed weak-typed networks/implicit quantization/IPluginV2/TREX and Python&lt;=3.9 bind</td></tr><tr><td><span class='tag'>热门可用</span></td><td><a href='https://github.com/Cysharp/UniTask'>Cysharp/UniTask</a></td><td>Zero-allocation async/await integration for Unity; struct UniTask&lt;T&gt;, awaitable AsyncOperation/Coroutine/event</td><td>11298 stars / 1013 forks; created 2019-05-19; pushed 2026-10-06T11:15:15Z; 6 issues in 30 days; latest 2026-11-03T12:31:</td><td>ACTIVE (6 issues/30d + push within 90d); MIT; not archived/disabled; mature project with Unity Test Runner + IL2CPP CI</td><td class='risk'>UniTask cannot be awaited twice (undefined behavior); Entities package resets PlayerLoop; UniTask.Run deprecated and thread-pool paths break WebGL; Wa</td></tr></table>
+<div class="sub" style="margin-top:8px">全部来自宽松 topic 扩维检索，<b>非窗口内新生</b>；前驱为 Search 索引，下轮升 core 并按 R23 抑制显著性。</div>
+
+<h2>5 · 广度（cohort）与深度（引爆渠道）</h2>
+<div class="ok"><b>cohort（R52 浮点天主口径，固定 33 项池）：</b>2014 轮 <b>23.2</b> · 2021 轮 <b>14.5</b> · 2022 轮 <b>70.5</b> · 2023 轮 <b>2240.9</b> · 2024 轮 <b>418.9</b> · 2025 轮 <b>4220.2</b> · 2026 轮 <b>694.8</b><br>
+该口径为<b>全生命周期平均月均 star，非近期增速</b>；高星样本存在幸存者偏差，不可与 run#2 n=57 / run#3 n=28 比较。</div>
+<div class="note" style="margin-top:12px"><b>当期无新引爆点。</b>持续注意力事件 <code>synchopate/llama-modchip</code>：HN item 50411961（2026-11-08T10:22:04Z）<b>480 pts / 205 cmt</b>（走平），星标 825→829（+4 / 0.48%），fork +1、贡献者 2、下游依赖时序不可得 → <b>不得升级为采用事件</b>。claude-mem v15.15.1、FreeVideo v0.4.0 等采用侧证据均早于本窗口。Reddit / Product Hunt / newsletter 渠道缺口如实记录。</div>
+
+<h2>6 · OSICS 信息节点观测</h2>
+<div class="note"><b>状态：NO_SIGNAL / DATA_INSUFFICIENT。</b>截面 quantization <b>50</b> / kv-cache <b>26</b> / moe <b>55</b> / local-llm <b>130</b>（与 run #17 逐项一致，连续第 4 次跨轮可比）；四项前置未齐（stargazers 401、fork/贡献者/下游依赖时序缺失、阈值倍数未指定、连续快照缺失）→ 不输出冲击强度分与事件时间戳。财经媒体引用核验 <b>否</b>（10 条来源全为宏观叙事，无一条引用星标加速度）。</div>
+
+<h2>7 · 第三方冲突与待复核</h2>
+<table><tr><th>仓库</th><th>来源</th><th>第三方/榜单</th><th>core API（权威）</th><th>差值</th></tr><tr><td>google-deepmind/mujoco</td><td>whatstrending.ai /api/repos</td><td>17158</td><td><b>17157</b></td><td>1</td></tr><tr><td>google-deepmind/mujoco</td><td>Trending daily (WebFetch)</td><td>17,147</td><td><b>17,157</b></td><td>-10</td></tr><tr><td>thedotmack/claude-mem</td><td>Trending weekly/monthly (WebFetch)</td><td>115,606</td><td><b>115,607</b></td><td>-1</td></tr></table>
+<div class="sub" style="margin-top:8px">待复核项 18 条，详见报告 §8：</div>
+<ul><li>R54: re-sample Trending via same curl channel once reachable to confirm channel attribution</li><li>R29-class: upgrade 4 run18 new items to core /repos next run, suppress significance (R23)</li><li>Re-run 403 expansion queries topic:comfyui / topic:retopology / topic:quantization with &gt;=8s spacing</li><li>llm-d/llm-d 30-day issue count HTTP 403, recheck</li><li>open-webui/open-webui fork core 23008 vs Search 23007 (1-fork index lag), API authoritative</li><li>FlashML-org/FreeVideo: sm_120 / 16GB real test, minimum ComfyUI version vs local 0.30.0, H3 community license commercial boundary</li><li>NVIDIA/TensorRT: sm_120 / RTX50 support matrix, CUDA 13.4 on Win10 22H2, C-drive space</li><li>ricosjp/truck: v0.6.x tutorial version drift; Windows Rust+wgpu build</li><li>Cysharp/UniTask: Unity 6 regression test and .NET version matrix</li><li>R44: llama-modchip contributors=2; downstream-dependents time series still unavailable</li><li>stargazers+star+json HTTP 401: daily star series unavailable (do not regress to &quot;coverage insufficient&quot;)</li><li>atom vs core semantic versions must NOT be subtracted; atom curl 000 this run</li><li>NOASSERTION/None must not be labeled commercially usable; weak copyleft stays excluded</li><li>Reddit vertical subreddits need proxy; Product Hunt / newsletter lack structured data</li><li>16GB sm_120 / SW2017 real-hardware verification pending: no item may be upgraded to integration advice</li><li>mapillary/OpenSfM successor OpenSfM/OpenSfM eligibility to be checked</li><li>partcad/partcad 529 stars below size floor; monitor</li><li>R39: continue dual-channel sampling + absolute star recording + non-zero-row validation</li></ul>
+
+<h2>8 · 固定免责声明</h2>
+<div class="note">OSICS 为待验证研究假设，不构成任何投资建议、交易信号或估值结论。本输出不含个股代码、买卖判断、价位、目标价或仓位建议。所引财经/学术数据均为二手转述，须核对原文与发布时点；Menlo Ventures 等报告样本为美国企业决策者，结论不得平移至 A 股或中国市场。GitHub 星标与 Trending 排名衡量注意力而非采用度，不得作为渗透率、收入或基本面代理变量。A 股无直接可比研究，不作跨市场类推。</div>
+
+<div class="foot">静态看板 · 无 JavaScript · 无内联事件 ｜ 结构化增量摘要见 <code>GitHub增量摘要_schema18_2026-11-10_1953.yaml</code> ｜ 完整报告见 <code>GitHub增量摘要与OSICS观测_2026-11-10_1953.md</code></div>
+</div></body></html>

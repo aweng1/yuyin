@@ -1,0 +1,203 @@
+schema_version: 18
+run_id: delta_run_18
+baseline_version: v1
+delta_direct_predecessor: delta_run_17
+retrieved_at_utc: 2026-11-10T11:53:43Z
+retrieved_at_cst: '2026-11-10 19:53:43'
+retrieved_end_utc: 2026-11-10T12:06:31Z
+retrieved_end_cst: '2026-11-10 20:06:31'
+interval_vs_baseline_v1: '~27h55m'
+interval_vs_run17: '~1h22m (SHORT window; no significant structural change expected)'
+time_windows:
+  recent_update_def: 'pushed_at >= 2026-08-12T00:00:00Z (near 90 days)'
+  active_maintenance_def: 'issue activity >= 2026-10-11T00:00:00Z (near 30 days)'
+  growth_window: '2026-10-11 .. 2026-11-10 (near 30 days)'
+  hn_lookback_start_utc: '2026-11-03T11:53:00Z'
+default_filter_assumptions:
+  info_check: 'WorkBuddy knowledge_search ran this run; workbuddy_library 0 hits; ima/tencent_docs/tencent_drive/tencent_meeting all exchange_failed; GitHub MCP not enabled; no pre-existing GitHub list'
+  unanswered_questions: 'unattended automation -> AskUserQuestion not used; defaults below applied and disclosed'
+  focus: 'SolidWorks 2017 mechanical drafting / joints+tolerances / Blender retopo / ComfyUI+MiniMax H3 short drama / Unity 6 / 16GB VRAM (RTX 5070 Ti sm_120) local inference'
+  project_scale: '>=500 stars for hot group; related group down to ~650 stars when strongly aligned'
+  language_ecosystem: 'Python / Rust / C++ / C# / TypeScript; permissive licenses preferred'
+  maintenance: 'pushed within 90 days AND >=1 issue in last 30 days'
+  exclusions: 'NOASSERTION/None, AGPL/GPL and weak copyleft, watermark-removal tools, curated lists, chain overlap, performance claims without independent reproduction, maintenance-mode/deprecated projects'
+  recent_definition: 'near 90 days push (since 2026-08-12)'
+data_source_reachability:
+  github_core_rest_api: 'HTTP 200 via curl; fresh 60/60 window, 59 used, 1 remaining, reset UTC 12:54:07 / CST 20:54:07; R12 business endpoint /repos probed first'
+  github_search_api: 'delta main run 7/7 HTTP 200 (84/84 full coverage); supplement 11/14 HTTP 200 + 3/14 HTTP 403 secondary throttle (topic:comfyui, topic:retopology, topic:quantization); new-item issue gate 14/15 HTTP 200'
+  github_trending_curl: 'S1+S2 dual sample 6/6 HTTP 000 -> channel split (R18/R24); authoritative channel = independent WebFetch'
+  github_trending_webfetch: 'daily 12 / weekly 14 / monthly 14 rows, non-zero-row check passed; absolute stars and period gains recorded'
+  hn_algolia: 'HTTP 200 (19 repos + item 50411961)'
+  core_releases_latest: 'HTTP 200 4/4; releases.atom curl HTTP 000 (channel reversal vs run#16)'
+  stargazers_star_json: 'HTTP 401 -> daily star time series UNAVAILABLE'
+  whatstrending_api_repos: 'HTTP 200, 150 repos; /api/trends/weekly HTTP 404'
+  reddit: 'HTTP 000 (proxy required)'
+  producthunt: 'HTTP 403'
+  raw_githubusercontent: 'curl HTTP 000; independent WebFetch channel 4/4 succeeded (two-channel README verification)'
+  api_star_history_svg: 'HTTP 200 but SVG image, NOT structured JSON time series (R38 unchanged)'
+stock_pool:
+  predecessor_size: 84
+  current_size: 84
+  after_new_items: 88
+  groups_predecessor: {related: 50, hot: 34}
+  groups_after_new_items: {related: 52, hot: 36}
+  dedup_key: owner/repo full name
+delta_summary:
+  total: 84
+  same_channel_core_core: 33
+  cross_channel_items: 51
+  unchanged: 31
+  star_noise: 24
+  new_push: 29
+  structural: 0
+  license_changes: 0
+  pushed_at_changes: 29
+  maintenance_flag_changes: 0
+  window_version_changes: 0
+  not_comparable_fields: 0
+  significant: 0
+  significant_suppressed_cross_channel: 1
+  max_delta: 26
+  min_delta: -2
+  max_delta_same_channel: 26
+  min_delta_same_channel: -2
+  max_delta_repo: JustVugg/colibri
+  min_delta_repo: HKUDS/nanobot
+  max_delta_note: 'colibri +26 is cross-channel (core->search_index), NOT evidential (R23); largest same-channel mover claude-mem +26 = 0.022%, below 1% threshold'
+methodology_changes:
+  - 'R54 NEW: Trending curl 6/6 HTTP 000 -> independent WebFetch channel. Board membership/order differs from run#17 (daily 11->12, weekly 1 in/1 out, monthly 13->14) while period gains for ALL overlapping repos are byte-identical and absolute stars rise 1~70. Attributed to CHANNEL_ATTRIBUTION (egress cache instants), NOT a genuine board refresh. Cross-channel board comparison is not event evidence.'
+  - 'R55 NEW: mapillary/OpenSfM README first line explicitly says "no longer under active development" -> maintenance-mode exclusion (second real case after optimum-quanto in run#17). High stars + permissive license + recent push + issue updates do NOT override a README deprecation notice.'
+  - 'R39 MAINTAINED REVISED/CHANNEL_ATTRIBUTION: WebFetch S1 cross-board absolute-star inconsistency in 6 repos; claude-mem 115606 vs core 115607, mujoco 17147 vs core 17157 -> API always wins. The 14-run "identical list" streak is NOT asserted across channels.'
+  - 'R29-class CLOSED: 4 run17 new items upgraded from search_index to core /repos first-party (sand3d 1698, inference 9650, Mooncake 7014, gpustack 6009); deltas suppressed per R23.'
+  - 'run#17 pending #5 partial CLOSE: topic:cad expansion recovered HTTP 200 with 21 candidates; topic:comfyui still 403. pending #6 CLOSED: NVIDIA/TensorRT 30-day issues measured as 32.'
+  - 'R16-search recheck: overlap 52, exact 51, mismatch 1 (open-webui/open-webui core forks 23008 vs Search 23007; stars equal) -> API authoritative.'
+  - 'R52 float-day cohort PRIMARY maintained; R36 12th same-channel sample ollama +7/+2, sglang +6/+3 (CLOSED/REVISED stands); R44 llama-modchip core contributors = 2.'
+changed_items: []
+changed_items_note: 'ZERO project-level changes this run: 0 license / 0 maintenance-flag / 0 in-window version / 0 structural-significant / 0 not-comparable fields. 29 same-day pushes are engineering activity, NOT new events. Per delta rule, unchanged items get one status line only, not the full 8 fields.'
+unchanged_status_lines:
+  note: 'per delta rule, unchanged items are NOT repeated with full 8 fields; one status line each'
+  fully_unchanged: 31
+  star_noise_only: 24
+  same_day_new_push_engineering_activity: 29
+new_items:
+  related:
+    - name: ricosjp/truck
+      url: https://github.com/ricosjp/truck
+      purpose: 'Rust open-source CAD shape-processing kernel: NURBS B-rep, modular crates, boolean ops, tessellation, WebGPU rendering'
+      use_case: 'CAD kernel layer for understanding NURBS->B-rep->solid->STL dataflow alongside SW2017 joints and PA12 print-in-place workflow'
+      heat: '1688 stars / 132 forks; created 2020-12-26; pushed 2026-11-02T06:26:59Z; 10 issues in 30 days; 0 HN / 0 Trending hits'
+      maintenance: 'ACTIVE (10 issues/30d + push within 90d); Apache-2.0; not archived/disabled'
+      docs_license: 'Apache-2.0; cargo example commands reproducible; per-crate Crates.io/Docs.rs badges; v0.6.x tutorial sites; two-channel README verified'
+      why: 'Fills the missing geometry-kernel layer in the pool; permissive license; aligns with current mechanical-drafting/tolerance learning priority'
+      risks: 'no STEP/IGES import, no drawings/GD&T; tutorials pinned to v0.6.x (version drift); needs Rust+wgpu Windows toolchain; low-frequency maintenance'
+      provenance: 'loose topic expansion (topic:cad), NOT newly created in this interval; predecessor channel search_index -> core upgrade next run (R23 suppressed)'
+    - name: FlashML-org/FreeVideo
+      url: https://github.com/FlashML-org/FreeVideo
+      purpose: 'Local MiniMax H3 video inference engine on consumer GPUs; VDN-H3 8-step model, weight streaming, int8/FP8 adaptive precision, ComfyUI plugin'
+      use_case: 'Highest alignment this run: ComfyUI + H3 short drama + 9:16 vertical + 16GB VRAM + Windows one-click + domestic offline download'
+      heat: '2929 stars / 370 forks; created 2026-09-13; pushed 2026-11-09T13:30:04Z; 506 issues in 30 days (Search updated denominator); latest 2026-11-10T11:45:18Z; 8 releases 10-02..10-13'
+      maintenance: 'VERY ACTIVE (same-day issue updates + dense releases); Apache-2.0 code; not archived/disabled'
+      docs_license: 'code Apache-2.0; MODEL WEIGHTS under MiniMax H3 Community License with territorial/acceptable-use restrictions; bilingual README with 5 reproducible install paths; News timeline'
+      why: 'Only item hitting all five hard constraints (H3 drama + ComfyUI plugin + 16GB + Windows + domestic offline); strongest runnability and documentation this run'
+      risks: 'no sm_120/RTX50 naming, 8GB claim lacks independent reproduction; model-weight license needs legal review for commercial toy use; minimum ComfyUI version unspecified (local 0.30.0); 2-month-old project with 527 open issues; Windows exe hash/security-software handling; arXiv 2609.20744 is secondary'
+      provenance: 'loose topic expansion (topic:video-generation), NOT newly created in this interval; predecessor channel search_index -> core upgrade next run (R23 suppressed)'
+  hot:
+    - name: NVIDIA/TensorRT
+      url: https://github.com/NVIDIA/TensorRT
+      purpose: 'OSS components of NVIDIA TensorRT inference SDK: plugins, ONNX parser, samples, four import workflow paths; pip install tensorrt prebuilt'
+      use_case: 'Industrial inference baseline alongside vLLM/SGLang/llama.cpp/diffusers/Model-Optimizer; explicit quantization and plugin architecture reference'
+      heat: '13441 stars / 2420 forks; created 2019-05-02; pushed 2026-11-05T18:43:29Z; 32 issues in 30 days (run#17 pending #6 closed); latest 2026-11-10T03:40:44Z; TensorRT 11.X announced'
+      maintenance: 'ACTIVE (32 issues/30d + 11.X migration notes + 2026Q3 roadmap); Apache-2.0; not archived/disabled'
+      docs_license: 'Apache-2.0; one-line pip install; full source build with git submodule, Docker and CMake including Windows PowerShell; explicit CUDA 13.4/12.9, cuDNN 8.9, cmake>=3.31, Python 3.10-3.14'
+      why: 'Closes last run pending item; satisfies all four hard gates with first-party values and is not a star-count-only recommendation'
+      risks: 'OSS repo is a subset of GA release; sm_120/RTX50 not named; 11.X removed weak-typed networks/implicit quantization/IPluginV2/TREX and Python<=3.9 bindings; CUDA+container size conflicts with near-full C drive / Win10 22H2; 700 open issues'
+      provenance: 'loose topic expansion (topic:inference), NOT newly created in this interval; predecessor channel search_index -> core upgrade next run (R23 suppressed)'
+    - name: Cysharp/UniTask
+      url: https://github.com/Cysharp/UniTask
+      purpose: 'Zero-allocation async/await integration for Unity; struct UniTask<T>, awaitable AsyncOperation/Coroutine/events, PlayerLoop timing, async LINQ, TaskTracker'
+      use_case: 'Unity 6 / GridBuildingSystem / infinite-stream AI game / Excel->ScriptableObject config async loading and frame-timing control'
+      heat: '11298 stars / 1013 forks; created 2019-05-19; pushed 2026-10-06T11:15:15Z; 6 issues in 30 days; latest 2026-11-03T12:31:13Z; 0 HN / 0 Trending hits'
+      maintenance: 'ACTIVE (6 issues/30d + push within 90d); MIT; not archived/disabled; mature project with Unity Test Runner + IL2CPP CI'
+      docs_license: 'MIT; one-line UPM git URL and manifest.json entry; explicit minimum Unity 2018.4.13f1 / path-query >=2019.3.4f1; extensive "do not" constraint tables; two-channel README verified'
+      why: 'Best documentation/runnability this run; directly relevant to Unity 6 mainline; no overlap with existing 3D/CAD/inference chain'
+      risks: 'UniTask cannot be awaited twice (undefined behavior); Entities package resets PlayerLoop; UniTask.Run deprecated and thread-pool paths break WebGL; WaitForEndOfFrame timing caveats; no explicit Unity 6 validation; only 6 issues/30d'
+      provenance: 'loose topic expansion (topic:unity), NOT newly created in this interval; predecessor channel search_index -> core upgrade next run (R23 suppressed)'
+excluded_items:
+  - 'mapillary/OpenSfM: README explicitly "no longer under active development" -> maintenance mode (R55)'
+  - 'partcad/partcad: 529 stars below related-group ~650 floor, observation only'
+  - 'Helldez/BigMoeOnEdge: unverifiable lossless/any-hardware performance claims; isolated from OSICS'
+  - 'saturday06/VRM-Addon-for-Blender / EpicGames/BlenderTools / microsoft/maker.js / oumi-ai/oumi: only 1/1/1/3 issues in 30 days'
+  - 'llm-d/llm-d: 30-day issue gate HTTP 403, activity unverified'
+  - 'openMVG (MPL-2.0), Marlin (GPL-3.0), OrcaSlicer (AGPL-3.0), Cura (LGPL-3.0), Meshroom/ncnn/ml-agents (NOASSERTION): license gate'
+  - 'curated lists, chain-overlap repos, and ZhuLinsen/daily_stock_analysis (stock tool excluded from OSICS)'
+deep_direction:
+  current_window_new_ignition: none
+  attention_event:
+    repo: synchopate/llama-modchip
+    source: 'Hacker News / HN Algolia API'
+    date_utc: 2026-11-08T10:22:04Z
+    link: https://news.ycombinator.com/item?id=50411961
+    algolia: https://hn.algolia.com/api/v1/items/50411961
+    title: 'Llama-modchip: 284B DeepSeek on 64GB RAM, no GPU'
+    points: 480
+    comments: 205
+    delta_stars: 4
+    delta_pct: 0.48
+    forks_delta: 1
+    contributors: 2
+    verdict: 'ATTENTION EVENT (flat), MUST NOT be upgraded to adoption'
+  adoption_carryover:
+    - 'thedotmack/claude-mem v15.15.1 @ 2026-11-10T07:06:39Z, official release notes thank @kevin9327; HN 0 hits in 7 days'
+    - 'google-deepmind/mujoco 4.0.0 / Discussions #3773 from run#15 window; HN 1-pt post is not ignition'
+    - 'FlashML-org/FreeVideo v0.4.0 @ 2026-10-13 etc. all predate this window'
+  channel_gaps: 'Reddit HTTP 000 (proxy needed); Product Hunt HTTP 403; no structured newsletter archive; releases.atom curl HTTP 000'
+  secondary_sources_need_original_check: 'toutiao 11-08, hqwc.cn Maple-Preview, dauntless.systems digest 11-05, emergent.sh ByteSized 11-03, AITECH TOKYO, arXiv 2609.20744'
+breadth_direction:
+  metric: 'lifetime average monthly stars = current_stars / months_since(created_at), FLOAT days PRIMARY (R52)'
+  fixed_pool_n: 33
+  medians_float_days: {2014: 23.2, 2021: 14.5, 2022: 70.5, 2023: 2240.9, 2024: 418.9, 2025: 4220.2, 2026: 694.8}
+  medians_integer_days_historical: {2014: 23.2, 2021: 14.5, 2022: 70.5, 2023: 2242.5, 2024: 419.2, 2025: 4226.3, 2026: 703.8}
+  run17_float_days: {2023: 2241.0, 2025: 4219.9, 2026: 694.9}
+  caveat: 'LIFETIME AVERAGE, NOT recent growth rate; high-star survivorship/size bias; NOT comparable with run2 n=57 / run3 n=28; recent growth requires daily snapshots with explicit source+date'
+  available_recent_proxies: 'Trending WebFetch period gains @ 2026-11-10T12:01:00Z; whatstrending.ai /api/repos @ 12:02:01Z'
+osics:
+  status: NO_SIGNAL
+  reason: DATA_INSUFFICIENT
+  cross_section: {quantization: 50, kv-cache: 26, moe: 55, local-llm: 130}
+  cross_run_comparable: 'identical to run#17 for the 4th consecutive run; gap is purely time series'
+  blockers: 'stargazers 401; no fork/contributor/downstream-dependents time series; threshold multiplier unspecified; no continuous contributor snapshots'
+  outputs_suppressed: ['impact_score', 'event_timestamp_utc_and_cst', 'topic_impact_ranking']
+  mainstream_financial_media_citation: false
+  financial_media_sources_checked: 10
+  disclaimer_ref: 'section 11 / dashboard section 6'
+workbuddy_alignment:
+  knowledge_search_ran: true
+  workbuddy_library_hits: 0
+  unavailable: ['ima:exchange_failed', 'tencent_docs:exchange_failed', 'tencent_drive:exchange_failed', 'tencent_meeting:exchange_failed']
+  github_mcp: not_enabled
+  verdict: 'No pre-existing GitHub list in WorkBuddy; 88-item stock pool is the sole delta baseline and alignment target'
+third_party_conflicts:
+  items:
+    - {repo: google-deepmind/mujoco, source: 'whatstrending.ai /api/repos', third_party: 17158, core_api: 17157, delta: 1}
+    - {repo: google-deepmind/mujoco, source: 'Trending daily WebFetch', third_party: 17147, core_api: 17157, delta: -10}
+    - {repo: thedotmack/claude-mem, source: 'Trending weekly/monthly WebFetch', third_party: 115606, core_api: 115607, delta: -1}
+  policy: 'core GitHub API authoritative; all conflicts forwarded to pending_review'
+pending_review:
+  - 'R54: re-sample Trending via same curl channel once reachable to confirm channel attribution'
+  - 'R29-class: upgrade 4 run18 new items to core /repos next run, suppress significance (R23)'
+  - 'Re-run 403 expansion queries topic:comfyui / topic:retopology / topic:quantization with >=8s spacing'
+  - 'llm-d/llm-d 30-day issue count HTTP 403, recheck'
+  - 'open-webui/open-webui fork core 23008 vs Search 23007 (1-fork index lag), API authoritative'
+  - 'FlashML-org/FreeVideo: sm_120 / 16GB real test, minimum ComfyUI version vs local 0.30.0, H3 community license commercial boundary'
+  - 'NVIDIA/TensorRT: sm_120 / RTX50 support matrix, CUDA 13.4 on Win10 22H2, C-drive space'
+  - 'ricosjp/truck: v0.6.x tutorial version drift; Windows Rust+wgpu build'
+  - 'Cysharp/UniTask: Unity 6 regression test and .NET version matrix'
+  - 'R44: llama-modchip contributors=2; downstream-dependents time series still unavailable'
+  - 'stargazers+star+json HTTP 401: daily star series unavailable (do not regress to "coverage insufficient")'
+  - 'atom vs core semantic versions must NOT be subtracted; atom curl 000 this run'
+  - 'NOASSERTION/None must not be labeled commercially usable; weak copyleft stays excluded'
+  - 'Reddit vertical subreddits need proxy; Product Hunt / newsletter lack structured data'
+  - '16GB sm_120 / SW2017 real-hardware verification pending: no item may be upgraded to integration advice'
+  - 'mapillary/OpenSfM successor OpenSfM/OpenSfM eligibility to be checked'
+  - 'partcad/partcad 529 stars below size floor; monitor'
+  - 'R39: continue dual-channel sampling + absolute star recording + non-zero-row validation'
